@@ -1590,6 +1590,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   void getCleverTapId() {
+    CleverTapPlugin.recordEvent("Flutter Push", {});
     CleverTapPlugin.getCleverTapID().then((clevertapId) {
       if (clevertapId == null) return;
       setState((() {
