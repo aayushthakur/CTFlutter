@@ -69,6 +69,7 @@ flutter {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.clevertap.android:clevertap-android-sdk:4.4.0'
+    implementation "com.clevertap.android:push-templates:1.0.0"
     implementation 'com.android.support:support-v4:28.0.0'
     implementation 'com.google.firebase:firebase-messaging:23.0.1'//Mandatory for using FCM push notifications, skip if not using FCM
     implementation 'com.android.support:appcompat-v7:28.0.0'//MANDATORY for App Inbox
