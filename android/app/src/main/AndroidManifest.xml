@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <!-- Recommended so that CleverTap knows when to attempt a network call -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
 
     <application
         android:label="ct_flutter_integration"
@@ -23,7 +24,16 @@
            android:value="eu1"/>
 
 
-        <service android:name="com.clevertap.android.sdk.pushnotification.fcm.FcmMessageListenerService"
+       <!-- <service
+            android:name=".MyFirebaseMessaging"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>-->
+
+
+       <service android:name="com.clevertap.android.sdk.pushnotification.fcm.FcmMessageListenerService"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />

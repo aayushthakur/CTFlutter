@@ -38,7 +38,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  clevertap_plugin: 1.5.4
+  clevertap_plugin: 1.6.1
   flutter_styled_toast: ^2.0.0
 
   # The "flutter_lints" package below contains a set of recommended lints to
