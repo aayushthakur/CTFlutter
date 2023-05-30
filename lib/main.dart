@@ -43,6 +43,13 @@ class _MyAppState extends State<MyApp> {
     CleverTapPlugin.setDebugLevel(3);
     CleverTapPlugin.createNotificationChannel(
         "fluttertest", "Flutter Test", "Flutter Test", 3, true);
+    CleverTapPlugin.createNotificationChannel(
+        "testChannelId1", "Test Channel 1", "Test Channel Description", 3, true);
+
+    CleverTapPlugin.createNotificationChannelWithSound(
+                    "soundChannel","Sound Channel",
+                    "Channel with custom sound",
+                    3,true,"anya.mp3");
     CleverTapPlugin.initializeInbox();
     CleverTapPlugin.registerForPush(); //only for iOS
     //var initialUrl = CleverTapPlugin.getInitialUrl();
@@ -588,6 +595,17 @@ class _MyAppState extends State<MyApp> {
                   child: Padding(
                     padding: const EdgeInsets.all(4.0),
                     child: ListTile(
+                      title: Text("Aayush InApp Interstitial"),
+                      subtitle: Text("Aayush InApp Interstitial"),
+                      onTap: inAppInterstitial,
+                    ),
+                  ),
+                ),
+                Card(
+                  color: Colors.grey.shade300,
+                  child: Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: ListTile(
                       title: Text("Suspend InApp notifications"),
                       subtitle:
                       Text("Suspends display of InApp Notifications."),
@@ -1070,7 +1088,7 @@ class _MyAppState extends State<MyApp> {
       'first': 'partridge',
       'second': 'turtledoves'
     };
-    CleverTapPlugin.recordEvent("Send Basic Push", eventData);
+    CleverTapPlugin.recordEvent("PT Basic Trigger", eventData);
   }
 
   void sendAutoCarouselPush() {
@@ -1086,7 +1104,7 @@ class _MyAppState extends State<MyApp> {
       // Key:    Value
       '': ''
     };
-    CleverTapPlugin.recordEvent("Send Manual Carousel Push", eventData);
+    CleverTapPlugin.recordEvent("PT Manual Carousel Trigger", eventData);
   }
 
   void sendFilmStripCarouselPush() {
@@ -1094,7 +1112,7 @@ class _MyAppState extends State<MyApp> {
       // Key:    Value
       '': ''
     };
-    CleverTapPlugin.recordEvent("Send Filmstrip Carousel Push", eventData);
+    CleverTapPlugin.recordEvent("PT Sticky 5 Icon", eventData);
   }
 
   void sendRatingCarouselPush() {
@@ -1134,7 +1152,7 @@ class _MyAppState extends State<MyApp> {
       // Key:    Value
       '': ''
     };
-    CleverTapPlugin.recordEvent("Send Zero Bezel Notification", eventData);
+    CleverTapPlugin.recordEvent("PT Zero Bezel Trigger", eventData);
   }
 
   void sendZeroBezelTextOnlyPush() {
@@ -1747,6 +1765,11 @@ class _MyAppState extends State<MyApp> {
   void resumeInAppNotifications() {
     CleverTapPlugin.resumeInAppNotifications();
     showToast("InApp notification is resumed");
+  }
+
+  void inAppInterstitial() {
+    CleverTapPlugin.recordEvent("Aayush InApp Interstitial", {});
+    showToast("Aayush InApp Interstitial");
   }
 
   void enablePersonalization() {
